@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dobgép</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="audio/kick.mp3" as="audio" />
+  <link rel="preload" href="audio/snare.mp3" as="audio" />
+  <link rel="preload" href="audio/closedhat.wav" as="audio" />
+  <link rel="preload" href="audio/openhat.wav" as="audio" />
+</head>
+<body>
+  <header>
+    <h1>Dobgép</h1>
+    <p>Kattints az ikonokra és építs egy ismétlődő dobritmust.</p>
+  </header>
+
+  <main>
+    <section id="controls">
+      <label for="bpm">BPM:</label>
+      <input id="bpm" type="range" min="60" max="160" value="100" />
+      <span id="bpm-value">100</span>
+      <button id="play-btn">Play</button>
+      <button id="stop-btn">Stop</button>
+      <button id="clear-btn">Clear</button>
+    </section>
+
+    <section id="crew">
+      <!-- Character 1 -->
+      <article class="character" data-track="kick">
+        <div class="avatar">🥁</div>
+        <h2>Kick</h2>
+        <div class="icons">
+          <button class="sound-icon" data-sound="pattern1">●</button>
+          <button class="sound-icon" data-sound="pattern2">●</button>
+          <button class="sound-icon" data-sound="pattern3">●</button>
+        </div>
+      </article>
+
+      <!-- Character 2 -->
+      <article class="character" data-track="snare">
+        <div class="avatar">🎧</div>
+        <h2>Snare</h2>
+        <div class="icons">
+          <button class="sound-icon" data-sound="pattern1">●</button>
+          <button class="sound-icon" data-sound="pattern2">●</button>
+          <button class="sound-icon" data-sound="pattern3">●</button>
+        </div>
+      </article>
+
+      <!-- Character 3 -->
+      <article class="character" data-track="closedhat">
+        <div class="avatar">🎵</div>
+        <h2>Hi-Hat (closed)</h2>
+        <div class="icons">
+          <button class="sound-icon" data-sound="pattern1">●</button>
+          <button class="sound-icon" data-sound="pattern2">●</button>
+          <button class="sound-icon" data-sound="pattern3">●</button>
+        </div>
+      </article>
+
+      <!-- Character 4 -->
+      <article class="character" data-track="openhat">
+        <div class="avatar">👏</div>
+        <h2>Open Hi-Hat (open)</h2>
+        <div class="icons">
+          <button class="sound-icon" data-sound="pattern1">●</button>
+          <button class="sound-icon" data-sound="pattern2">●</button>
+          <button class="sound-icon" data-sound="pattern3">●</button>
+        </div>
+      </article>
+    </section>
+
+    <section id="pattern-visual">
+      <h2>Loop steps</h2>
+      <div id="steps"></div>
+    </section>
+  </main>
+
+  <script src="js/loops.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+:root {
+  --bg: #111827;
+  --panel: #1f2937;
+  --accent: #10b981;
+  --accent-soft: rgba(16, 185, 129, 0.2);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --danger: #ef4444;
+  --font-main: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1f2937, #020617);
+  color: var(--text);
+  font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.3rem;
+}
+
+header p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+main {
+  width: 100%;
+  max-width: 1100px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#controls {
+  background: var(--panel);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#controls label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+#bpm {
+  flex: 1 1 150px;
+}
+
+#bpm-value {
+  width: 3rem;
+  text-align: right;
+}
+
+#controls button {
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s;
+}
+
+#play-btn {
+  background: var(--accent);
+  color: #022c22;
+  box-shadow: 0 0 0 1px var(--accent-soft);
+}
+
+#stop-btn {
+  background: var(--danger);
+  color: #fee2e2;
+}
+
+#clear-btn {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid #374151;
+}
+
+#controls button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+#controls button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+#crew {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.character {
+  background: linear-gradient(145deg, #111827, #020617);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.avatar {
+  font-size: 2.8rem;
+}
+
+.character h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.icons {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.3rem;
+}
+
+.sound-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: none;
+  background: #111827;
+  color: var(--muted);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.1s;
+}
+
+.sound-icon::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+.sound-icon.active {
+  background: var(--accent);
+  color: #022c22;
+  box-shadow: 0 10px 22px rgba(16, 185, 129, 0.4);
+}
+
+.sound-icon:hover {
+  transform: translateY(-1px);
+}
+
+#pattern-visual {
+  background: var(--panel);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem 1.1rem;
+}
+
+#pattern-visual h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+#steps {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.step {
+  height: 18px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid #374151;
+  opacity: 0.35;
+  transition: background 0.15s, opacity 0.15s, transform 0.1s;
+}
+
+.step.active {
+  background: var(--accent);
+  opacity: 0.9;
+  transform: scale(1.12);
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #steps {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
